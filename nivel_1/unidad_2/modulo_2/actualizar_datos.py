@@ -14,3 +14,4 @@ def actualizar(conectar, mi_id, nombre):
 
 conectar = crear_base()
 actualizar(conectar, 2, "Josefa")
+conectar.close()

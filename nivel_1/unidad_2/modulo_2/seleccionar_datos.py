@@ -20,3 +20,4 @@ def seleccionar(conectar, mi_id):
 
 conectar = crear_base()
 seleccionar(conectar, 2)
+conectar.close()

@@ -14,3 +14,4 @@ def borrar(conectar, mi_id):
 
 conectar = crear_base()
 borrar(conectar, 3)
+conectar.close()

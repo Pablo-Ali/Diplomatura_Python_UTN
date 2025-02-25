@@ -12,3 +12,4 @@ def crear_tabla(conectar):
 
 conectar = crear_base()
 crear_tabla(conectar)
+conectar.close()

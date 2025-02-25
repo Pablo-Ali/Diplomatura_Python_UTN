@@ -14,3 +14,4 @@ def insertar(conectar, mi_id, nombre):
 
 conectar = crear_base()
 insertar(conectar, 3, "Anna3")
+conectar.close()
