@@ -6,8 +6,8 @@ import sqlite3
 # conectar.close() # cierra la base
 
 def crear_base():
-    conectar = sqlite3.connect("mibase.db")
-    return conectar
+    conexion = sqlite3.connect("mibase.db")
+    return conexion
 
-conectar = crear_base()
-conectar.close()
+conexion = crear_base()
+conexion.close()

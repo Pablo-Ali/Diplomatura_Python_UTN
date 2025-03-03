@@ -1,19 +1,17 @@
+import sqlite3
 from tkinter import *
 from tkinter import ttk
 
-mi_id = 0
 
 # Funciones
+def crear_base():
+    conexion = sqlite3.connect("mibase.db")
+    return conexion
+
+conectar = crear_base()
 
 def guardar():
     pass
-    global mi_id
-    mi_id += 1
-    tree.insert("", "end", text=str(mi_id), values=(var_titulo.get(), var_autor.get(),var_genero.get(),var_stock.get()))
-    var_titulo.set("")
-    var_autor.set("")
-    var_genero.set("")
-    var_stock.set("")
 
 def eliminar():
     pass
@@ -24,9 +22,11 @@ def actualizar():
 def crear_base():
     pass
 
+# apertura / creación de la base
+conexion = crear_base()
+
 # apertura del bucle principal
 root = Tk()
-
 
 # variables de tkinter
 
@@ -89,3 +89,6 @@ tree.grid(column=0, row=7, columnspan=5)
 
 # cierre del bucle
 root.mainloop() 
+
+#cierre de la base
+conexion.close()

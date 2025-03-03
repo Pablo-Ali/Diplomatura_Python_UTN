@@ -1,16 +1,16 @@
 import sqlite3
 
 def crear_base():
-    conectar = sqlite3.connect("mibase.db")
-    return conectar
+    conexion = sqlite3.connect("mibase.db")
+    return conexion
 
-def seleccionar(conectar, mi_id):
-    cursor = conectar.cursor()
+def seleccionar(conexion, mi_id):
+    cursor = conexion.cursor()
     mi_id = int(mi_id)
     data = (mi_id, )
     sql = "SELECT * FROM personas WHERE id = ?;"
     cursor.execute(sql, data)
-    conectar.commit()
+    conexion.commit()
 
     # imprimir el resultado
     rows = cursor.fetchall()
@@ -18,6 +18,6 @@ def seleccionar(conectar, mi_id):
     for row in rows:
         print(row)
 
-conectar = crear_base()
-seleccionar(conectar, 2)
-conectar.close()
+conexion = crear_base()
+seleccionar(conexion, 2)
+conexion.close()

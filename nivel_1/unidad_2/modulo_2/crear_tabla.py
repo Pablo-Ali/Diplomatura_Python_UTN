@@ -1,15 +1,15 @@
 import sqlite3
 
 def crear_base():
-    conectar = sqlite3.connect("mibase.db")
-    return conectar
+    conexion = sqlite3.connect("mibase.db")
+    return conexion
 
-def crear_tabla(conectar):
-    cursor = conectar.cursor()
+def crear_tabla(conexion):
+    cursor = conexion.cursor()
     sql = "CREATE TABLE personas(id integer PRIMARY KEY, nombre text)"
     cursor.execute(sql)
-    conectar.commit()
+    conexion.commit()
 
-conectar = crear_base()
-crear_tabla(conectar)
-conectar.close()
+conexion = crear_base()
+crear_tabla(conexion)
+conexion.close()
