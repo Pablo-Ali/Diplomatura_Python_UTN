@@ -1,3 +1,4 @@
+import re
 import sqlite3
 from tkinter import *
 from tkinter import ttk
@@ -23,10 +24,10 @@ def guardar(conexion, titulo, autor, genero, stock, mi_treeview):
     
     if titulo.get() == "":
         showinfo("Error", "Debe añadir un título")
-    elif autor.get() == "":
-        showinfo("Error", "Debe añadir un autor")
-    elif genero.get() == "":
-        showinfo("Error", "Debe añadir un género")
+    elif not verificar_cadena(autor.get()):
+        showinfo("Error", "Debe añadir un autor con caracteres válidos")
+    elif not verificar_cadena(genero.get()):
+        showinfo("Error", "Debe añadir un género con caracteres válidos")
     elif stock.get() < 0:
         showinfo("Error", "El stock no puede ser negativo")
     else:
@@ -122,12 +123,17 @@ def confirmar_actualizar():
         
     else:
         return False
+    
+def verificar_cadena(cadena):
+    # verifica que la cadena esté compuesta por al menos un caracter alfabético en español, o puntos, comas y guiones medios
+    patron = r"^[a-zA-Z\sáéíóúÁÉÍÓÚäëïöüÄËÏÖÜñÑ\.,\-]+$"
+    return bool(re.match(patron, cadena))
 
 ############################################################
 # PERSISTENCIA Y LÓGICA
 ############################################################
 
-# apertura / creación de la base
+# apertura / creación de la base y la tabla
 conexion = crear_base()
 
 try:
