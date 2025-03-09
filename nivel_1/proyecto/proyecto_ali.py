@@ -148,6 +148,9 @@ except:
 # apertura del bucle principal
 root = Tk()
 
+# pongo el fondo en negro
+root.configure(bg="black")
+
 # variables de tkinter
 var_titulo = StringVar()
 var_autor = StringVar()
@@ -155,37 +158,36 @@ var_genero = StringVar()
 var_stock = IntVar()
 
 # etiquetas
-titulo_app = Label(root, text="Stock Librería")
+titulo_app = Label(root, text="Stock Librería", bg="black", fg="white", font=('', 30, 'bold'))
 titulo_app.grid(row=0, column=1, sticky=N)
 
-titulo = Label(root, text="Título")
+titulo = Label(root, text="Título", bg="black", fg="white", font=('', 10, 'bold'))
 titulo.grid(row=1, column=0, sticky=W)
-autor = Label(root, text="Autor")
+autor = Label(root, text="Autor", bg="black", fg="white", font=('', 10, 'bold'))
 autor.grid(row=2, column=0, sticky=W)
-genero = Label(root, text="Género")
+genero = Label(root, text="Género", bg="black", fg="white", font=('', 10, 'bold'))
 genero.grid(row=3, column=0, sticky=W)
-stock = Label(root, text="Stock")
+stock = Label(root, text="Stock", bg="black", fg="white", font=('', 10, 'bold'))
 stock.grid(row=4, column=0, sticky=W)
 
-
 # entrys
-entry_titulo = Entry(root, textvariable=var_titulo, width=25)
+entry_titulo = Entry(root, textvariable=var_titulo, width=25, bg="gray", fg="white", font=('', 10, 'bold'))
 entry_titulo.grid(row=1, column=1, sticky=W)
-entry_autor = Entry(root, textvariable=var_autor, width=25)
+entry_autor = Entry(root, textvariable=var_autor, width=25, bg="gray", fg="white", font=('', 10, 'bold'))
 entry_autor.grid(row=2, column=1, sticky=W)
-entry_genero = Entry(root, textvariable=var_genero, width=25)
+entry_genero = Entry(root, textvariable=var_genero, width=25, bg="gray", fg="white", font=('', 10, 'bold'))
 entry_genero.grid(row=3, column=1, sticky=W)
-entry_stock = Entry(root, textvariable=var_stock, width=10)
+entry_stock = Entry(root, textvariable=var_stock, width=10, bg="gray", fg="white", font=('', 10, 'bold'))
 entry_stock.grid(row=4, column=1, sticky=W)
 
 # botones
-boton_guardar = Button(root, text="Guardar", command=lambda: guardar(conexion, var_titulo, var_autor, var_genero, var_stock, tree))
+boton_guardar = Button(root, text="Guardar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: guardar(conexion, var_titulo, var_autor, var_genero, var_stock, tree))
 boton_guardar.grid(row=5, column=1, sticky=W)
 
-boton_borrar = Button(root, text="Eliminar", command=lambda : eliminar(conexion, tree))
+boton_borrar = Button(root, text="Eliminar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda : eliminar(conexion, tree))
 boton_borrar.grid(row=6, column=1, sticky=W)
 
-boton_actualizar_stock = Button(root, text="Actualizar Stock", command=lambda: actualizar(conexion, tree, var_stock))
+boton_actualizar_stock = Button(root, text="Actualizar\nStock", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: actualizar(conexion, tree, var_stock))
 boton_actualizar_stock.grid(row=7, column=1, sticky=W)
 
 # tree
@@ -193,7 +195,7 @@ tree = ttk.Treeview(root)
 
 tree["columns"] = ("col1", "col2", "col3", "col4")
 tree.column("#0", width=50, minwidth=50, anchor=W)
-tree.column("col1", width=200, minwidth=200, anchor=W)
+tree.column("col1", width=300, minwidth=300, anchor=W)
 tree.column("col2", width=150, minwidth=150, anchor=W)
 tree.column("col3", width=100, minwidth=100, anchor=W)
 tree.column("col4", width=50, minwidth=50, anchor=W)
