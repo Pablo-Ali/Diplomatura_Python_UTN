@@ -4,12 +4,11 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import askyesno, showinfo
 from PIL import Image, ImageTk
-import os
+import sys
 
 # ruta de la imagen
-
-ruta_script = os.path.dirname(os.path.abspath(__file__))
-ruta_imagen = os.path.join(ruta_script, "libros.png")
+ruta_script = sys.path[0]
+ruta_imagen = ruta_script + "\\" + "libros.png"
 
 ############################################################
 # FUNCIONES
