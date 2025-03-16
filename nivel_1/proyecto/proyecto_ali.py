@@ -7,9 +7,13 @@ from tkinter.simpledialog import askstring
 from PIL import Image, ImageTk
 import sys
 
-# ruta de la imagen
+# ruta de la imagen según sistema operativo
 ruta_script = sys.path[0]
-ruta_imagen = ruta_script + "\\" + "libros.png"
+
+if sys.platform == "win32": # método de sys robado de chat gpt para poder usar el script en mi notebok con fedora y en mi pc de escritorio con windows
+    ruta_imagen = ruta_script + "\\" + "libros.png"
+else:
+    ruta_imagen = ruta_script + "/" + "libros.png"
 
 ############################################################
 # FUNCIONES
