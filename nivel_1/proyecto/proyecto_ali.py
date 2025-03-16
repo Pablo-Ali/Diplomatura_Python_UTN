@@ -3,6 +3,7 @@ import sqlite3
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import askyesno, showinfo
+from tkinter.simpledialog import askstring
 from PIL import Image, ImageTk
 import sys
 
@@ -102,6 +103,31 @@ def actualizar(conexion, mi_treeview, stock):
 
     stock.set(0)
 
+def buscar_libro(conexion):
+    id_libro = askstring("Búsqueda", "Ingrese el ID del libro a buscar")
+
+    # corroboro que ingrese datos correctos
+    if (id_libro is None) or (id_libro.isdigit() == False):
+        showinfo("Error", "Debe ingresar un número válido")
+        return
+
+    cursor = conexion.cursor()
+    data = (id_libro, )
+    sql = "SELECT * FROM libros WHERE id = ?;"
+    cursor.execute(sql, data)
+    conexion.commit()
+
+    ##############################################################################################################
+    # esta parte se la robé a chat gpt
+    libro = cursor.fetchone()
+
+    if libro:
+        mensaje = f"ID: {libro[0]}\nTítulo: {libro[1]}\nAutor: {libro[2]}\nGénero: {libro[3]}\nStock: {libro[4]}"
+        showinfo("Libro encontrado", mensaje)
+    else:
+        showinfo("No encontrado", "No existe un libro con ese ID.")
+    ##############################################################################################################
+
 def imprimir_registros(conexion, mi_treeview):
     # limpiar tree
     for item in mi_treeview.get_children():
@@ -200,13 +226,16 @@ entry_stock.grid(row=4, column=1, pady=2)
 
 # botones
 boton_guardar = Button(root, text="Guardar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: guardar(conexion, var_titulo, var_autor, var_genero, var_stock, tree))
-boton_guardar.grid(row=5, column=1, pady=2)
+boton_guardar.grid(row=5, column=1, pady=2, sticky=W)
 
 boton_borrar = Button(root, text="Eliminar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda : eliminar(conexion, tree))
-boton_borrar.grid(row=6, column=1, pady=2)
+boton_borrar.grid(row=5, column=1, pady=2, sticky=E)
 
 boton_actualizar_stock = Button(root, text="Actualizar\nStock", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: actualizar(conexion, tree, var_stock))
-boton_actualizar_stock.grid(row=7, column=1, pady=2)
+boton_actualizar_stock.grid(row=6, column=1, pady=2, sticky=W)
+
+boton_buscar = Button(root, text="Buscar\npor ID", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: buscar_libro(conexion))
+boton_buscar.grid(row=6, column=1, pady=2, sticky=E)
 
 # tree
 tree = ttk.Treeview(root)
@@ -224,7 +253,7 @@ tree.heading("col2", text="Autor")
 tree.heading("col3", text="Género")
 tree.heading("col4", text="Stock")
 
-tree.grid(column=0, row=8, columnspan=5)
+tree.grid(column=0, row=7, columnspan=5)
 
 # cargar registros
 imprimir_registros(conexion, tree)
