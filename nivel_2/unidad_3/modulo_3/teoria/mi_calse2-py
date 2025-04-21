@@ -1,0 +1,16 @@
+class Persona():
+    
+    
+    # constructor
+    def __init__(self, nombre): # no tenemos sobrecarga de constructores como en Java
+        self.nombre = nombre
+
+    # métodos
+    def comer_arroz(self):
+        pass
+
+anna = Persona("Anna Karen")
+juan = Persona("Juan Marcelo")
+
+print(anna.nombre)
+print(juan.nombre)
