@@ -1,0 +1,8 @@
+ejercicios.py
+pyproject.toml
+teoria/__main__.py
+teoria/modulo_pablo.py
+teoria.egg-info/PKG-INFO
+teoria.egg-info/SOURCES.txt
+teoria.egg-info/dependency_links.txt
+teoria.egg-info/top_level.txt
