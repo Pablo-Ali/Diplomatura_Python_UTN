@@ -12,10 +12,7 @@ from tkinter import W
 from PIL import Image
 from PIL import ImageTk
 
-from modelo import actualizar
-from modelo import buscar_libro
-from modelo import eliminar
-from modelo import guardar
+from modelo import MiCRUD
 from modelo import imprimir_registros
 from modelo import conexion
 
@@ -73,16 +70,17 @@ def vista_principal(root):
     entry_stock.grid(row=4, column=1, pady=2)
 
     # botones
-    boton_guardar = Button(root, text="Guardar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: guardar(conexion, var_titulo, var_autor, var_genero, var_stock, tree))
+    boton_crud = MiCRUD()
+    boton_guardar = Button(root, text="Guardar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: boton_crud.guardar(conexion, var_titulo, var_autor, var_genero, var_stock, tree))
     boton_guardar.grid(row=5, column=1, pady=2, sticky=W)
 
-    boton_borrar = Button(root, text="Eliminar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda : eliminar(conexion, tree))
+    boton_borrar = Button(root, text="Eliminar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda : boton_crud.eliminar(conexion, tree))
     boton_borrar.grid(row=5, column=1, pady=2, sticky=E)
 
-    boton_actualizar_stock = Button(root, text="Actualizar\nStock", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: actualizar(conexion, tree, var_stock))
+    boton_actualizar_stock = Button(root, text="Actualizar\nStock", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: boton_crud.actualizar(conexion, tree, var_stock))
     boton_actualizar_stock.grid(row=6, column=1, pady=2, sticky=W)
 
-    boton_buscar = Button(root, text="Buscar\npor ID", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: buscar_libro(conexion))
+    boton_buscar = Button(root, text="Buscar\npor ID", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: boton_crud.buscar_libro(conexion))
     boton_buscar.grid(row=6, column=1, pady=2, sticky=E)
 
     # tree
