@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo module &mdash; documentación de Proyecto Libreria - 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=4936afed"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="vista module" href="vista.html" />
+    <link rel="prev" title="mis_regex module" href="mis_regex.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Proyecto Libreria
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">proyecto</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="alertas.html">alertas module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlador.html">controlador module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mis_regex.html">mis_regex module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">modelo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros"><code class="docutils literal notranslate"><span class="pre">Libros</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Libros.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Libros.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Libros.autor"><code class="docutils literal notranslate"><span class="pre">Libros.autor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Libros.genero"><code class="docutils literal notranslate"><span class="pre">Libros.genero</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Libros.id"><code class="docutils literal notranslate"><span class="pre">Libros.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Libros.stock"><code class="docutils literal notranslate"><span class="pre">Libros.stock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Libros.titulo"><code class="docutils literal notranslate"><span class="pre">Libros.titulo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.MiCRUD"><code class="docutils literal notranslate"><span class="pre">MiCRUD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.MiCRUD.actualizar"><code class="docutils literal notranslate"><span class="pre">MiCRUD.actualizar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.MiCRUD.buscar_libro"><code class="docutils literal notranslate"><span class="pre">MiCRUD.buscar_libro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.MiCRUD.eliminar"><code class="docutils literal notranslate"><span class="pre">MiCRUD.eliminar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.MiCRUD.guardar"><code class="docutils literal notranslate"><span class="pre">MiCRUD.guardar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.MiCRUD.imprimir_registros"><code class="docutils literal notranslate"><span class="pre">MiCRUD.imprimir_registros()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vista.html">vista module</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Módulos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="alertas.html">alertas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">controlador module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mis_regex.html">mis_regex module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modelo module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Libros"><code class="docutils literal notranslate"><span class="pre">Libros</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Libros.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros.autor"><code class="docutils literal notranslate"><span class="pre">Libros.autor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros.genero"><code class="docutils literal notranslate"><span class="pre">Libros.genero</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros.id"><code class="docutils literal notranslate"><span class="pre">Libros.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros.stock"><code class="docutils literal notranslate"><span class="pre">Libros.stock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Libros.titulo"><code class="docutils literal notranslate"><span class="pre">Libros.titulo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.MiCRUD"><code class="docutils literal notranslate"><span class="pre">MiCRUD</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.MiCRUD.actualizar"><code class="docutils literal notranslate"><span class="pre">MiCRUD.actualizar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.MiCRUD.buscar_libro"><code class="docutils literal notranslate"><span class="pre">MiCRUD.buscar_libro()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.MiCRUD.eliminar"><code class="docutils literal notranslate"><span class="pre">MiCRUD.eliminar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.MiCRUD.guardar"><code class="docutils literal notranslate"><span class="pre">MiCRUD.guardar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.MiCRUD.imprimir_registros"><code class="docutils literal notranslate"><span class="pre">MiCRUD.imprimir_registros()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">vista module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Proyecto Libreria</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">proyecto</a></li>
+      <li class="breadcrumb-item active">modelo module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modelo.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modelo">
+<span id="modelo-module"></span><h1>modelo module<a class="headerlink" href="#module-modelo" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.BaseModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelo.BaseModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Clase base que conecta los modelos a la base de datos SQLite.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.BaseModel.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo.BaseModel.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.BaseModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">BaseModel.id&gt;</span></em><a class="headerlink" href="#modelo.BaseModel.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Libros">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Libros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelo.Libros" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo.BaseModel" title="modelo.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Modelo que representa la tabla “Libros” en la base de datos.</p>
+<section id="atributos">
+<h2>Atributos<a class="headerlink" href="#atributos" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>titulo<span class="classifier">CharField</span></dt><dd><p>Título del libro.</p>
+</dd>
+<dt>autor<span class="classifier">CharField</span></dt><dd><p>Autor del libro.</p>
+</dd>
+<dt>genero<span class="classifier">CharField</span></dt><dd><p>Género literario del libro.</p>
+</dd>
+<dt>stock<span class="classifier">IntegerField</span></dt><dd><p>Cantidad de ejemplares disponibles.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Libros.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#modelo.Libros.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">LibrosDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Libros.autor">
+<span class="sig-name descname"><span class="pre">autor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Libros.autor&gt;</span></em><a class="headerlink" href="#modelo.Libros.autor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Libros.genero">
+<span class="sig-name descname"><span class="pre">genero</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Libros.genero&gt;</span></em><a class="headerlink" href="#modelo.Libros.genero" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Libros.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Libros.id&gt;</span></em><a class="headerlink" href="#modelo.Libros.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Libros.stock">
+<span class="sig-name descname"><span class="pre">stock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Libros.stock&gt;</span></em><a class="headerlink" href="#modelo.Libros.stock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Libros.titulo">
+<span class="sig-name descname"><span class="pre">titulo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Libros.titulo&gt;</span></em><a class="headerlink" href="#modelo.Libros.titulo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.MiCRUD">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">MiCRUD</span></span><a class="headerlink" href="#modelo.MiCRUD" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que encapsula las operaciones CRUD | ABMC sobre el modelo Libros.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.MiCRUD.actualizar">
+<span class="sig-name descname"><span class="pre">actualizar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitreeview</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelo.MiCRUD.actualizar" title="Link to this definition"></a></dt>
+<dd><p>Actualiza el stock del libro seleccionado en el Treeview.</p>
+<section id="parametros">
+<h2>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>stock<span class="classifier">StringVar</span></dt><dd><p>Nuevo stock a establecer.</p>
+</dd>
+<dt>mitreeview<span class="classifier">ttk.Treeview</span></dt><dd><p>Tabla de visualización de libros.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.MiCRUD.buscar_libro">
+<span class="sig-name descname"><span class="pre">buscar_libro</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modelo.MiCRUD.buscar_libro" title="Link to this definition"></a></dt>
+<dd><p>Solicita al usuario un ID de libro y muestra la información correspondiente si existe.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.MiCRUD.eliminar">
+<span class="sig-name descname"><span class="pre">eliminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mitreeview</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelo.MiCRUD.eliminar" title="Link to this definition"></a></dt>
+<dd><p>Elimina un libro seleccionado del Treeview y de la base de datos.</p>
+<section id="id1">
+<h2>Parámetros<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>mitreeview<span class="classifier">ttk.Treeview</span></dt><dd><p>Tabla de visualización de libros.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.MiCRUD.guardar">
+<span class="sig-name descname"><span class="pre">guardar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">titulo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genero</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mitreeview</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelo.MiCRUD.guardar" title="Link to this definition"></a></dt>
+<dd><p>Guarda un nuevo libro en la base de datos, validando los campos.</p>
+<section id="id2">
+<h2>Parámetros<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>titulo<span class="classifier">StringVar</span></dt><dd><p>Título del libro (vía Tkinter).</p>
+</dd>
+<dt>autor<span class="classifier">StringVar</span></dt><dd><p>Autor del libro.</p>
+</dd>
+<dt>genero<span class="classifier">StringVar</span></dt><dd><p>Género del libro.</p>
+</dd>
+<dt>stock<span class="classifier">StringVar</span></dt><dd><p>Cantidad de ejemplares como texto.</p>
+</dd>
+<dt>mitreeview<span class="classifier">ttk.Treeview</span></dt><dd><p>Tabla de visualización de libros.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.MiCRUD.imprimir_registros">
+<span class="sig-name descname"><span class="pre">imprimir_registros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mitreeview</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelo.MiCRUD.imprimir_registros" title="Link to this definition"></a></dt>
+<dd><p>Limpia el Treeview y lo repuebla con todos los registros actuales de libros.</p>
+<section id="id3">
+<h2>Parámetros<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>mitreeview<span class="classifier">ttk.Treeview</span></dt><dd><p>Tabla donde se muestran los registros.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="mis_regex.html" class="btn btn-neutral float-left" title="mis_regex module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="vista.html" class="btn btn-neutral float-right" title="vista module" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Pablo Ali.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
