@@ -11,11 +11,28 @@ db = SqliteDatabase("base_libreria_peewee.db")
 
 # indico que use la base de datos declarada
 class BaseModel(Model):
+    """
+    Clase base que conecta los modelos a la base de datos SQLite.
+    """
     class Meta:
         database = db
 
 # creo una clase para cada tabla a crear
 class Libros(BaseModel):
+    """
+    Modelo que representa la tabla 'Libros' en la base de datos.
+
+    Atributos
+    ----------
+    titulo : CharField
+        Título del libro.
+    autor : CharField
+        Autor del libro.
+    genero : CharField
+        Género literario del libro.
+    stock : IntegerField
+        Cantidad de ejemplares disponibles.
+    """
     titulo = CharField()
     autor = CharField()
     genero = CharField()
@@ -31,7 +48,26 @@ except:
     print("Tabla ya creada")
 
 class MiCRUD():
+    """
+    Clase que encapsula las operaciones CRUD | ABMC sobre el modelo Libros.
+    """
     def guardar (self, titulo, autor, genero, stock, mitreeview):
+        """
+        Guarda un nuevo libro en la base de datos, validando los campos.
+
+        Parámetros
+        ----------
+        titulo : StringVar
+            Título del libro (vía Tkinter).
+        autor : StringVar
+            Autor del libro.
+        genero : StringVar
+            Género del libro.
+        stock : StringVar
+            Cantidad de ejemplares como texto.
+        mitreeview : ttk.Treeview
+            Tabla de visualización de libros.
+        """
         # instancio la clase
         libro = Libros()
         reg_cadena = MisRegex()
@@ -75,6 +111,14 @@ class MiCRUD():
         self.imprimir_registros(mitreeview)
 
     def eliminar(self, mitreeview):
+        """
+        Elimina un libro seleccionado del Treeview y de la base de datos.
+
+        Parámetros
+        ----------
+        mitreeview : ttk.Treeview
+            Tabla de visualización de libros.
+        """
         alerta = MisAlertas()
 
         # selecciono el campo
@@ -97,6 +141,16 @@ class MiCRUD():
         self.imprimir_registros(mitreeview)
 
     def actualizar(self, stock, mitreeview):
+        """
+        Actualiza el stock del libro seleccionado en el Treeview.
+
+        Parámetros
+        ----------
+        stock : StringVar
+            Nuevo stock a establecer.
+        mitreeview : ttk.Treeview
+            Tabla de visualización de libros.
+        """
         alerta = MisAlertas()
         
         # selecciono el campo
@@ -132,6 +186,9 @@ class MiCRUD():
         stock.set(0)
 
     def buscar_libro(self):
+        """
+        Solicita al usuario un ID de libro y muestra la información correspondiente si existe.
+        """
         id_libro = askstring("Búsqueda", "Ingrese el ID del libro a buscar")
 
         # Validación de entrada
@@ -160,6 +217,14 @@ class MiCRUD():
 
 
     def imprimir_registros(self, mitreeview):
+        """
+        Limpia el Treeview y lo repuebla con todos los registros actuales de libros.
+
+        Parámetros
+        ----------
+        mitreeview : ttk.Treeview
+            Tabla donde se muestran los registros.
+        """
         # limpieaza de tabla
         records = mitreeview.get_children()
         for element in records:

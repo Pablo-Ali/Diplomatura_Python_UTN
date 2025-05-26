@@ -11,7 +11,19 @@ from tkinter import W
 from modelo import MiCRUD
 
 class Ventana():
+    """
+    Clase que construye la interfaz gráfica principal de la aplicación utilizando Tkinter.
+    """
     def vista_principal(self, root):
+        """
+        Crea y configura la ventana principal de la aplicación, incluyendo campos de entrada,
+        botones y una tabla (Treeview) para mostrar los registros de libros.
+
+        Parámetros
+        ----------
+        root : tkinter.Tk
+            Ventana principal de la aplicación donde se montará la interfaz.
+        """
         # instancio la clase
         crud = MiCRUD()
 
