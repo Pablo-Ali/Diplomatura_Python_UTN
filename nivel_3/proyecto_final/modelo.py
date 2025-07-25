@@ -5,6 +5,7 @@ from tkinter.simpledialog import askstring
 
 from mis_regex import MisRegex
 from alertas import MisAlertas
+from observador import Subject
 
 import decoradores
 
@@ -49,7 +50,7 @@ try:
 except:
     print("Tabla ya creada")
 
-class MiCRUD():
+class MiCRUD(Subject):
     """
     Clase que encapsula las operaciones CRUD | ABMC sobre el modelo Libros.
     """
@@ -189,6 +190,7 @@ class MiCRUD():
 
         # actualizo el treeview
         self.imprimir_registros(mitreeview)
+        
         stock.set(0)
 
     def buscar_libro(self):
@@ -217,6 +219,7 @@ class MiCRUD():
                 f"Stock: {libro.stock}"
             )
             showinfo("Libro encontrado", mensaje)
+            self.notificar(libro.titulo)
         else:
             showinfo("No encontrado", "No existe un libro con ese ID.")
 

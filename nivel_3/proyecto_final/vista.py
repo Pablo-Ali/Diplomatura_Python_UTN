@@ -25,7 +25,7 @@ class Ventana():
             Ventana principal de la aplicación donde se montará la interfaz.
         """
         # instancio la clase
-        crud = MiCRUD()
+        self.crud = MiCRUD()
 
         # variables de tkinter
         var_titulo = StringVar()
@@ -63,16 +63,16 @@ class Ventana():
 
         # botones
 
-        boton_guardar = Button(root, text="Guardar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: crud.guardar(var_titulo, var_autor, var_genero, var_stock, tree))
+        boton_guardar = Button(root, text="Guardar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: self.crud.guardar(var_titulo, var_autor, var_genero, var_stock, tree))
         boton_guardar.grid(row=5, column=1, pady=2, sticky=W)
 
-        boton_borrar = Button(root, text="Eliminar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda : crud.eliminar(tree))
+        boton_borrar = Button(root, text="Eliminar", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda : self.crud.eliminar(tree))
         boton_borrar.grid(row=5, column=1, pady=2, sticky=E)
 
-        boton_actualizar_stock = Button(root, text="Actualizar\nStock", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: crud.actualizar(var_stock, tree))
+        boton_actualizar_stock = Button(root, text="Actualizar\nStock", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: self.crud.actualizar(var_stock, tree))
         boton_actualizar_stock.grid(row=6, column=1, pady=2, sticky=W)
 
-        boton_buscar = Button(root, text="Buscar\npor ID", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: crud.buscar_libro())
+        boton_buscar = Button(root, text="Buscar\npor ID", width=10, bg="gray", fg="white", font=('', 10, 'bold'), command=lambda: self.crud.buscar_libro())
         boton_buscar.grid(row=6, column=1, pady=2, sticky=E)
 
         # tree
@@ -94,4 +94,4 @@ class Ventana():
         tree.grid(column=0, row=7, columnspan=5)
 
         # cargar registros
-        crud.imprimir_registros(tree)
+        self.crud.imprimir_registros(tree)

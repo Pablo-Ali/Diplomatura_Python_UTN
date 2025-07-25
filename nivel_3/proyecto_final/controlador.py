@@ -1,5 +1,6 @@
 from tkinter import Tk
 from vista import Ventana
+import observador
 
 class Controlador:
     """
@@ -17,6 +18,7 @@ class Controlador:
         Inicia la ventana principal y el bucle de eventos de Tkinter.
         """
         self.panel.vista_principal(self.root)
+        self.el_observador = observador.ConcreteObserverA(self.panel.crud)
         self.root.mainloop()
 
 if __name__ == "__main__":

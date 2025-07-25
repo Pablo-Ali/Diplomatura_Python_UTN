@@ -1,31 +1,18 @@
-class Subject:
+import funciones
 
-    observadores = []
+class Subject:
+    def __init__(self):
+        self.observadores = []
 
     def agregar(self, obj):
         self.observadores.append(obj)
 
-    def quitar(self, obj):
-        pass
-
     def notificar(self, *args):
         for observador in self.observadores:
-            observador.update()
-
-class TemaConcreto(Subject):
-    def __init__(self, ):
-        self.estado = None
-
-    def set_estado(self, value):
-        self.estado = value
-        self.notificar()
-
-    def get_estado(self, ):
-        return self.estado
-    
+            observador.update(*args)   
 
 class Observador:
-    def uptade(self, ):
+    def update(self, *args):
         raise NotImplementedError("Delegación de actualización")
     
 
@@ -35,13 +22,23 @@ class ConcreteObserverA(Observador):
         self.observado_a.agregar(self)
 
     def update(self, *args):
-        print("Actualización dentro de Observador ConcreteObserverA")
-        self.estado = self.observado_a.get_estado()
-        print("Estado = ", self.estado)
+        try:
+            titulo = args[0]
+            # Obtengo la fecha actual
+            fecha_formateada = funciones.generar_fecha()
+
+            # Creo la cadena a registrar
+            log = f"{fecha_formateada} - Libro buscado en la base: {titulo}\n"
+
+            # Realizo el registro
+            with open("log_busqueda_libros.txt", "a", encoding="utf-8") as archivo:
+                archivo.write(log)
+
+        except Exception as e:
+            # Genero un registro con el error
+            with open("log_errores.txt", "a", encoding="utf-8") as archivo_e:
+                archivo_e.write(f"ERROR: No se pudo añadir entrada al log: {e}\n")
 
 
-tema1 = TemaConcreto()
-observador_a = ConcreteObserverA(tema1)
-tema1.set_estado(1)
 
 

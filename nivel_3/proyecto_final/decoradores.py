@@ -1,17 +1,4 @@
-from datetime import datetime
-
-def generar_fecha() -> str:
-    '''
-    Función que toma la fecha actual y la retorna
-    como una cadena formateada como DD/MM/YYYY
-    '''
-    # Obtengo la fecha actual
-    fecha_actual = datetime.now()
-
-    # Formateo
-    fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
-
-    return fecha_formateada
+import funciones
 
 
 def decorador_registrar_libro(funcion):
@@ -34,7 +21,7 @@ def decorador_registrar_libro(funcion):
 
             if resultado is True:
                 # Obtengo la fecha actual
-                fecha_formateada = generar_fecha()
+                fecha_formateada = funciones.generar_fecha()
 
                 # Creo la cadena a registrar
                 log = f"{fecha_formateada} - Nuevo libro añadido: {titulo_str}\n"
