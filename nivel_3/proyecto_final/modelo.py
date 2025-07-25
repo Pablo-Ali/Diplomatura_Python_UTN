@@ -195,7 +195,8 @@ class MiCRUD(Subject):
 
     def buscar_libro(self):
         """
-        Solicita al usuario un ID de libro y muestra la información correspondiente si existe.
+        Solicita al usuario un ID del libro y muestra la información correspondiente si existe.
+        Luego, notifica al observador.
         """
         id_libro = askstring("Búsqueda", "Ingrese el ID del libro a buscar")
 
