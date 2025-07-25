@@ -55,4 +55,3 @@ def decorador_registrar_libro(funcion):
 
 def decorador_registrar_ingreso_servidor(funcion):pass
 
-def decorador_registrar_patron_observador_modificaciones_stock(funcion):pass
