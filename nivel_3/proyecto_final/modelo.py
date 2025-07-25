@@ -6,8 +6,10 @@ from tkinter.simpledialog import askstring
 from mis_regex import MisRegex
 from alertas import MisAlertas
 
+import decoradores
+
 # declaro qué base voy a usar
-db = SqliteDatabase("base_libreria_peewee.db")
+db = SqliteDatabase("base_libreria_final.db")
 
 # indico que use la base de datos declarada
 class BaseModel(Model):
@@ -51,6 +53,7 @@ class MiCRUD():
     """
     Clase que encapsula las operaciones CRUD | ABMC sobre el modelo Libros.
     """
+    @decoradores.decorador_registrar_libro
     def guardar (self, titulo, autor, genero, stock, mitreeview):
         """
         Guarda un nuevo libro en la base de datos, validando los campos.
@@ -75,19 +78,19 @@ class MiCRUD():
         # tomo los atributos
         if titulo.get() == "":
             showinfo("Error", "Debe añadir un título")
-            return
+            return False
         elif not reg_cadena.verificar_reg_cadena(autor.get()):
             showinfo("Error", "Debe añadir un autor con caracteres válidos")
-            return
+            return False
         elif not reg_cadena.verificar_reg_cadena(genero.get()):
             showinfo("Error", "Debe añadir un género con caracteres válidos")
-            return
+            return False
         
         try:
             stock_num = int(stock.get())
         except ValueError:
             showinfo("Error", "Debe ingresar un número entero válido para el stock")
-            return
+            return False
         
         libro.titulo = titulo.get()
         libro.autor = autor.get()
@@ -99,7 +102,7 @@ class MiCRUD():
             libro.save()
         except Exception as e:
             showinfo("Error", f"No se pudo guardar el libro:\n{e}")
-            return
+            return False
 
         # pongo los campos en blanco
         titulo.set("")
@@ -109,6 +112,9 @@ class MiCRUD():
         
         # actualizamos el treeview
         self.imprimir_registros(mitreeview)
+        
+        # retorno para que se ejecute el decorador correctamente
+        return True
 
     def eliminar(self, mitreeview):
         """
