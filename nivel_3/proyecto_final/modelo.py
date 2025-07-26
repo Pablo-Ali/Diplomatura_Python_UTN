@@ -220,7 +220,8 @@ class MiCRUD(Subject):
                 f"Stock: {libro.stock}"
             )
             showinfo("Libro encontrado", mensaje)
-            self.notificar(libro.titulo)
+            # Observador
+            self.notificar(libro.titulo) 
         else:
             showinfo("No encontrado", "No existe un libro con ese ID.")
 

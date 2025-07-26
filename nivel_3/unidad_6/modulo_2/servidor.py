@@ -8,7 +8,7 @@ PASO 3 - El método listen() pone al socket en modo servidor de escucha
 PASO 4 - El método accept() acepta una conexión entrante (un cliente)
          El método accept() nos devuelve una conexión abierta entre 
          el servidor y el cliente, junto con la dirección del cliente.
-PASO 5 - Funciones de encío y recepción de datos-
+PASO 5 - Funciones de envío y recepción de datos-
          Los datos de la conexión se leen con el método recv()
          y se transmiten con el método sendall() o send()
 PASO 6 - El método close() cierra la conexión.

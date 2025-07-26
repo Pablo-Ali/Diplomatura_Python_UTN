@@ -1,6 +1,9 @@
 from tkinter import Tk
 from vista import Ventana
 import observador
+import funciones
+import threading
+import servidor
 
 class Controlador:
     """
@@ -17,6 +20,8 @@ class Controlador:
         """
         Inicia la ventana principal y el bucle de eventos de Tkinter.
         """
+        threading.Thread(target=servidor.iniciar_servidor).start() # lanza el servidor
+        threading.Thread(target=funciones.conectar_servidor).start() # se conecta al servidor
         self.panel.vista_principal(self.root)
         self.el_observador = observador.ConcreteObserverA(self.panel.crud)
         self.root.mainloop()
