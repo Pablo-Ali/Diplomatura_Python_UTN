@@ -1,1 +1,2 @@
 2025-07-26 09:13:20 - Inicio de sesión desde IP: 192.168.100.29
+2025-07-29 15:09:43 - Inicio de sesión desde IP: 10.202.27.56

@@ -8,8 +8,10 @@ def iniciar_servidor():
     un registro con los datos. Se cierra al finalizar.
     '''
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    host = socket.gethostname() # Esta es la IP del servidor
-    puerto = 456 # Puerto en el cual estoy escuchando
+    #host = socket.gethostname() # Esta es la IP del servidor
+    host = funciones.obtener_ip_local()
+    puerto = 65432 # Puerto en el cual estoy escuchando (número alto para que no lance error en Linux)
+    clientesocket = None # Lo declaro por si falla
     print(host)
 
     try:
@@ -36,6 +38,7 @@ def iniciar_servidor():
             # Cierro la conexión
             clientesocket.close()
     
-    finally:    
-        # Cierro la conexión
-        clientesocket.close()
+    finally:
+        # Cierro la conexión si no es None
+        if clientesocket:
+            clientesocket.close()

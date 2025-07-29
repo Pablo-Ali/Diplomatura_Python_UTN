@@ -1,0 +1,5 @@
+ERROR: No se pudo añadir entrada al log: [Errno 111] Connection refused
+ERROR: No se pudo añadir entrada al log: [Errno 111] Connection refused
+ERROR: No se pudo añadir entrada al log: [Errno 111] Connection refused
+ERROR: No se pudo añadir entrada al log: [Errno 111] Connection refused
+ERROR: No se pudo añadir entrada al log: [Errno 111] Connection refused
