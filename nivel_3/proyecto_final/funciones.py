@@ -4,14 +4,14 @@ import socket
 
 def generar_fecha() -> str:
     '''
-    Función que toma la fecha actual y la retorna
-    como una cadena formateada como DD/MM/YYYY
+    Función que toma la fecha y hora actuales y las retorna
+    como una cadena con formato ISO 8601 extendido
     '''
     # Obtengo la fecha actual
     fecha_actual = datetime.now()
 
     # Formateo
-    fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
+    fecha_formateada = fecha_actual.strftime("%Y-%m-%d %H:%M:%S")
 
     return fecha_formateada
 
