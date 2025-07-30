@@ -1,12 +1,13 @@
 import funciones
+from typing import Callable, Any # robado a ChatGPT para poder documentar mejor el código
 
 
-def decorador_registrar_libro(funcion):
+def decorador_registrar_libro(funcion : callable) -> callable:
     '''
-    Decorador que registra la fecha en la que son agregados
+    Decorador que registra la fecha y hora en la que son agregados
     nuevos libros a la base de datos.
     '''   
-    def envoltura(*args, **kwargs):
+    def envoltura(*args : any, **kwargs : any) -> any:
 
         try:
             # Obtengo el título antes de ejecutar el método original para que no se borre el campo
@@ -39,6 +40,3 @@ def decorador_registrar_libro(funcion):
                 archivo_e.write(f"ERROR: No se pudo añadir entrada al log: {e}\n")
        
     return envoltura
-
-def decorador_registrar_ingreso_servidor(funcion):pass
-

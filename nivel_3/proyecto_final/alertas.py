@@ -7,7 +7,7 @@ class MisAlertas():
     para acciones sensibles como borrar o actualizar registros.
     """
     
-    def confirmar_borrar(self, ):
+    def confirmar_borrar(self, ) -> bool:
         """
         Muestra una alerta de confirmación antes de borrar un registro.
 
@@ -20,7 +20,7 @@ class MisAlertas():
         else:
             return False
 
-    def confirmar_actualizar(self, ):
+    def confirmar_actualizar(self, ) -> bool:
         """
         Muestra una alerta de confirmación antes de actualizar el stock.
 

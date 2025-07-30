@@ -1,7 +1,7 @@
 import socket
 import funciones
 
-def iniciar_servidor():
+def iniciar_servidor() -> None:
     '''
     Función que permite abrir un servidor desde un hilo de ejecución
     creado en el controlador. Toma la fecha actual y la IP y genera

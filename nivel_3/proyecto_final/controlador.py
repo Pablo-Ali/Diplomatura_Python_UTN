@@ -16,7 +16,7 @@ class Controlador:
         self.root = Tk()
         self.panel = Ventana()
 
-    def iniciar(self):
+    def iniciar(self) -> None:
         """
         Inicia la ventana principal y el bucle de eventos de Tkinter.
         """

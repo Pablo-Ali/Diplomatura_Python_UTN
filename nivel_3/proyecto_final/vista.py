@@ -1,5 +1,4 @@
 from tkinter import StringVar
-from tkinter import IntVar
 from tkinter import Label
 from tkinter import Entry
 from tkinter import Button
@@ -7,6 +6,7 @@ from tkinter import ttk
 from tkinter import N 
 from tkinter import E
 from tkinter import W
+import tkinter as tk # para la documentación de tipo
 
 from modelo import MiCRUD
 
@@ -14,7 +14,7 @@ class Ventana():
     """
     Clase que construye la interfaz gráfica principal de la aplicación utilizando Tkinter.
     """
-    def vista_principal(self, root):
+    def vista_principal(self, root : tk.Tk) -> None:
         """
         Crea y configura la ventana principal de la aplicación, incluyendo campos de entrada,
         botones y una tabla (Treeview) para mostrar los registros de libros.

@@ -2,6 +2,8 @@ from peewee import *
 
 from tkinter.messagebox import showinfo
 from tkinter.simpledialog import askstring
+from tkinter import StringVar # Para documentación
+from tkinter import ttk # Para documentación
 
 from mis_regex import MisRegex
 from alertas import MisAlertas
@@ -55,7 +57,7 @@ class MiCRUD(Subject):
     Clase que encapsula las operaciones CRUD | ABMC sobre el modelo Libros.
     """
     @decoradores.decorador_registrar_libro
-    def guardar (self, titulo, autor, genero, stock, mitreeview):
+    def guardar (self, titulo : StringVar, autor : StringVar, genero : StringVar, stock : StringVar, mitreeview : ttk.Treeview) -> bool:
         """
         Guarda un nuevo libro en la base de datos, validando los campos.
 
@@ -117,7 +119,7 @@ class MiCRUD(Subject):
         # retorno para que se ejecute el decorador correctamente
         return True
 
-    def eliminar(self, mitreeview):
+    def eliminar(self, mitreeview : ttk.Treeview) -> None:
         """
         Elimina un libro seleccionado del Treeview y de la base de datos.
 
@@ -147,7 +149,7 @@ class MiCRUD(Subject):
         # actualizo el treeview
         self.imprimir_registros(mitreeview)
 
-    def actualizar(self, stock, mitreeview):
+    def actualizar(self, stock : StringVar, mitreeview : ttk.Treeview) -> None:
         """
         Actualiza el stock del libro seleccionado en el Treeview.
 
@@ -193,7 +195,7 @@ class MiCRUD(Subject):
         
         stock.set(0)
 
-    def buscar_libro(self):
+    def buscar_libro(self) -> None:
         """
         Solicita al usuario un ID del libro y muestra la información correspondiente si existe.
         Luego, notifica al observador.
@@ -227,7 +229,7 @@ class MiCRUD(Subject):
 
 
 
-    def imprimir_registros(self, mitreeview):
+    def imprimir_registros(self, mitreeview: ttk.Treeview) -> None:
         """
         Limpia el Treeview y lo repuebla con todos los registros actuales de libros.
 

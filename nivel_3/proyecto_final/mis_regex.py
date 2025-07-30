@@ -4,7 +4,7 @@ class MisRegex():
     """
     Clase que contiene métodos para validaciones con expresiones regulares.
     """
-    def verificar_reg_cadena(self, cadena):
+    def verificar_reg_cadena(self, cadena : str) -> bool:
         """
         Verifica que la cadena contenga solo caracteres válidos (letras, espacios, tildes,
         diéresis, ñ, puntos, comas y guiones).

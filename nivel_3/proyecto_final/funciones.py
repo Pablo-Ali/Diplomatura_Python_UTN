@@ -5,7 +5,7 @@ import socket
 def generar_fecha() -> str:
     '''
     Función que toma la fecha y hora actuales y las retorna
-    como una cadena con formato ISO 8601 extendido
+    como una cadena con formato ISO 8601.
     '''
     # Obtengo la fecha actual
     fecha_actual = datetime.now()
@@ -16,7 +16,7 @@ def generar_fecha() -> str:
     return fecha_formateada
 
 # Robada a ChatGPT porque me fallaba el socket.gethostname() cuando intentaba ejecutar el código en mi máquina de Linux
-def obtener_ip_local():
+def obtener_ip_local() -> str:
     """
     Devuelve la IP local de la máquina (por ejemplo, 192.168.x.x o 127.0.0.1).
     Funciona en Windows, Linux y macOS.
